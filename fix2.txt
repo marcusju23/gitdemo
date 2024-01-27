@@ -87,3 +87,30 @@ git cherry-pick feature2
 git remote add origin https://github.com/marcusju23/gitdemo.git
 git push -u origin main
 
+git add fix2.txt
+git commit -m “Update fix2.txt”
+
+17:
+echo. > .gitignore
+echo # Ignore all files with the extension jar > .gitignore
+echo *.jar >> .gitignore
+echo. >> .gitignore
+echo # Ignore all files in the directories out and target >> .gitignore
+echo out/ >> .gitignore
+echo target/ >> .gitignore
+echo. >> .gitignore
+echo # Allow files ending with html even if they are under the target directory >> .gitignore
+echo !/target/**/*.html >> .gitignore
+type .gitignore
+git add .gitignore
+git commit -m "Add .gitignore"
+git push origin main
+
+18:
+git tag -a v1.0 -m “Version 1.0”
+
+19:
+git rebase -i HEAD~2
+pick <commit-hash-1> Commit message 1
+squash <commit-hash-2> Commit message 2
+git push --force origin main
