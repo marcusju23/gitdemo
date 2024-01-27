@@ -1,1 +1,89 @@
- 
+1:
+cd Desktop
+mkdir javaverktyg-lab1 && cd javaverktyg-lab1
+git init
+git checkout -b main
+
+2:
+echo duck > README.md && echo moose >> README.md && echo cat >> README.md
+type README.md
+git add README.md
+
+3:
+git commit -m "Initial commit"
+
+4:
+git checkout -b feature1
+
+5:
+echo dog >> README.md
+type README.md
+powershell -Command "(Get-Content README.md) -replace 'moose', 'mouse' | Set-Content README.md"
+type README.md
+git add README.md
+git commit -m "Add dog and replace moose with mouse"
+
+6:
+git checkout main
+powershell -Command "(Get-Content README.md) -replace 'moose', 'mahmut' | Set-Content README.md"
+git add README.md
+git commit -m “Replace moose with mahmut”
+
+7:
+git checkout main
+git merge feature1
+type README.md
+echo. > README.md
+echo duck >> README.md
+echo mahmut >> README.md
+echo mouse >> README.md
+echo cat >> README.md
+echo dog >> README.md
+type README.md
+git add README.md
+git commit -m “Merge branch feature1”
+
+8:
+git log
+git tag -a extinct main -m “Extinct”
+
+9:
+git reset --hard HEAD~1
+echo. > README.md
+echo duck >> README.md && echo mahmut >> README.md && echo cat >> README.md
+type README.md
+git add README.md
+git commit --amend --no-edit
+
+10:
+git branch feature2
+
+11:
+echo. > README.md
+echo Duck >> README.md && echo Mahmut >> README.md && echo Cat >> README.md
+type README.md
+git add README.md
+git commit -m “Fix uppercase”
+
+12:
+git checkout feature2
+echo. > fix1.txt
+git add fix1.txt
+git commit -m "Add fix1.txt"
+echo. > fix2.txt
+git add fix2.txt
+git commit -m "Add fix2.txt"
+
+13:
+git checkout main
+dir fix1.txt && dir fix2.txt
+
+14:
+git checkout main
+git log –all
+git cherry-pick feature2
+
+16:
+git remote add origin https://github.com/marcusju23/gitdemo.git
+git push -u origin main
+
